@@ -44,16 +44,45 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .nav {
-    /* background: #F7EBDE; */
-    background-color: #F2E3DB;
+    background-color: rgb(21 57 78);
     transition: all .3s ease-in-out;
+    color: rgb(222, 222, 222);
     top: 0;
     z-index: 99;
 }
 
 .animateMenu {
-    animation: animatemenu 0.5s linear;
-    background: rgb(144, 150, 53);
+    animation: animatemenu 0.8s linear;
+    background-color: rgb(21 57 78);
+    color: rgb(222, 222, 222);
+}
+
+.btn-login {
+    background: #db2777;
+    transition: all .4s ease-in-out;
+}
+
+.btn-login:hover {
+    color: #db2777;
+    background: rgb(21 57 78);
+}
+
+.btn-register {
+    background: rgb(21 57 78);
+    color: #db2777;
+    transition: all .4s ease-in-out;
+}
+
+.btn-register:hover {
+    background: #db2777;
+    color: rgb(222, 222, 222);
+}
+
+
+.nav-header {
+    background-color: rgb(21 57 78);
+    color: rgb(219, 219, 219);
+    /* background: rgb(144, 150, 53); */
 }
 
 .contain {
@@ -193,7 +222,8 @@ input#openSidebarMenu {
 }
 
 footer {
-    background: rgb(144, 150, 53);
+    /* background: rgb(144, 150, 53); */
+    background-color: rgb(21 57 78);
 }
 
 @keyframes slideMenu {

@@ -15,35 +15,56 @@ const Navbar = () => {
         menu.classList.toggle('d-none');
     }
     return (
-        <nav className='w-full py-3 flex justify-between items-center fixed z-50 nav' >
-            <div className='flex flex-between pl-2 sm:pl-3 items-center w-2/3 sm:w-1/2'>
-                <div className='flex w-1/2 xsm:pl-4'>
-                    <i className="fa-solid fa-bag-shopping px-2 text-2xl pl-6 text-pink-600" ></i>
-                    <h2 className='text-base pt-1 xsm:text-xl font-bold'>Shoplify</h2>
+        <nav className='nav fixed top-0 w-full flex justify-center items-center flex-col' >
+            <div className='w-full flex justify-between items-center py-2 nav-header'>
+                <div className='flex justify-between items-center w-1/2 lg:w-1/3 ml-10'>
+                    <a href='tel:+923045760623' className=' mt-3 flex justify-start items-center transition-all ease-in-out duration-500 hover:text-pink-600'>
+                        <i class="fa-solid fa-phone text-lg"></i>
+                        <p className='pl-2 text-lg font-semibold'>+92304-5760623</p>
+                    </a>
+                    <a href='https://wa.me/+923045760623' className='mt-3 flex justify-start items-center transition-all ease-in-out duration-500 hover:text-pink-600'>
+                        <i class="fa-brands fa-whatsapp text-xl font-bold"></i>
+                        <p className='pl-2 text-lg font-semibold'>+92304-5760623</p>
+                    </a>
                 </div>
-                <Link to="/cart" className="w-1/2 flex justify-end xsm:mr-8 sm:mr-0">
-                    <i class="fa-solid fa-cart-shopping text-2xl hover:text-pink-600 transition ease-in-out duration-400"></i>
-                    <p className='text-xs font-bold'>10</p>
-                </Link>
+                <div className='mr-16'>
+                    {/* <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-login'> <Link to="/login">Sign In</Link> </button> */}
+                    {/* <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Sign Up</Link> </button> */}
+                    <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Log Out</Link> </button>
+                </div>
             </div>
-            <ul className=' hidden pr-1 xl:w-1/2 sm:flex sm:justify-evenly sm:w-1/2'>
-                <li><Link to="/" className='pl-8 xl:text-xl lg:text-lg md:text-base sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Home</Link></li>
-                <li><Link to="/products" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Products</Link></li>
-                <li> <a href="#about" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>About Us</a> </li>
-                <li> <a href="#contact" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Contact Us</a> </li>
-            </ul>
-            <input type="checkbox" id="openSidebarMenu" onChange={toggleMenu} />
-            <label for="openSidebarMenu" className=" sidebarIconToggle pr-4 sm:hidden">
-                <div className="spinner top"></div>
-                <div className="spinner middle"></div>
-                <div className="spinner bottom"></div>
-            </label>
-            <ul className='sm:hidden menu-responsive d-none'>
-                <li className='py-4'><Link to="/" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Home</Link></li>
-                <li className='py-4'><Link to="/products" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Products</Link></li>
-                <li className='py-4'><Link to="#about" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>About Us</Link></li>
-                <li className='py-4'><Link to="#contact" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Contact Us</Link></li>
-            </ul>
+            <div className='w-full py-3 flex justify-between items-center'>
+                <div className='flex flex-between pl-2 sm:pl-3 items-center w-2/3 sm:w-1/2'>
+                    <div className='flex w-1/2 xsm:pl-4'>
+                        <i className="fa-solid fa-bag-shopping px-2 text-2xl pl-6 text-pink-800" ></i>
+                        <h2 className='text-base pt-1 xsm:text-xl font-bold text-pink-700'>Shoplify</h2>
+                    </div>
+                    <Link to="/cart" className="w-1/2 flex justify-end xsm:mr-8 sm:mr-0">
+                        <i class="fa-solid fa-cart-shopping text-2xl text-pink-800 hover:text-pink-600 transition ease-in-out duration-400"></i>
+                        <p className='text-xs font-bold'>10</p>
+                    </Link>
+                </div>
+                <ul className=' hidden pr-1 xl:w-1/2 sm:flex sm:justify-evenly sm:w-1/2'>
+                    <li><Link to="/" className='pl-8 xl:text-xl lg:text-lg md:text-base sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Home</Link></li>
+                    <li><Link to="/products" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Products</Link></li>
+                    <li><Link to="/order" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Orders</Link></li>
+                    <li> <a href="#about" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>About</a> </li>
+                    <li> <a href="#contact" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Contact</a> </li>
+                </ul>
+                <input type="checkbox" id="openSidebarMenu" onChange={toggleMenu} />
+                <label for="openSidebarMenu" className=" sidebarIconToggle pr-4 sm:hidden">
+                    <div className="spinner top"></div>
+                    <div className="spinner middle"></div>
+                    <div className="spinner bottom"></div>
+                </label>
+                <ul className='sm:hidden menu-responsive d-none'>
+                    <li className='py-4'><Link to="/" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Home</Link></li>
+                    <li className='py-4'><Link to="/products" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Products</Link></li>
+                    <li className='py-4'><Link to="/order" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Orders</Link></li>
+                    <li className='py-4'><a href="#about" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>About Us</a></li>
+                    <li className='py-4'><a href="#contact" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Contact Us</a></li>
+                </ul>
+            </div>
         </nav >
     );
 }

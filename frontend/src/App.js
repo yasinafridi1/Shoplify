@@ -2,7 +2,7 @@ import AdminRoutes from "./AdminRoutes";
 import CustomerRoutes from "./CustomerRoutes";
 
 function App() {
-  const isAdmin = true;
+  const isAdmin = false;
   return (
     <>
       {

@@ -2,7 +2,7 @@ import React from 'react';
 import './order.css';
 const Orderstatus = () => {
     return (
-        <section class="status">
+        <section class="pt-16 pb-20 status">
             <div class="container mx-auto">
                 <div class="status-box w-full lg:w-2/3 mx-auto">
                     <div class="flex items-center justify-between mb-12">
