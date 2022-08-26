@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import man from '../../../images/man-png.png';
 import women from '../../../images/women.png';
@@ -7,7 +7,9 @@ import Productlisting from '../../product/Productlisting';
 
 
 const Home = () => {
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <section className='flex justify-center items-center flex-col'>

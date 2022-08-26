@@ -11,6 +11,7 @@ const AdminNav = () => {
     })
     return (
         <nav className='w-full height-10 py-3 flex justify-between items-center fixed z-50 nav' >
+
         </nav>
     );
 }

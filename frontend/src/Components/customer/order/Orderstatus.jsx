@@ -1,6 +1,9 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import './order.css';
 const Orderstatus = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <section class="pt-16 pb-20 status">
             <div class="container mx-auto">

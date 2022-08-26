@@ -1,7 +1,10 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import Singleproduct from './Singleproduct';
 
 const Allproducts = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className='py-20 px-3 '>
             <div className=' container mx-auto pt-16 pb-5 border-b border-gray-300'>

@@ -1,8 +1,9 @@
 import AdminRoutes from "./AdminRoutes";
 import CustomerRoutes from "./CustomerRoutes";
 
+
 function App() {
-  const isAdmin = false;
+  const isAdmin = true;
   return (
     <>
       {

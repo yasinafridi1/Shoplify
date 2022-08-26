@@ -1,6 +1,11 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import Singleorder from './Singleorder';
 const Order = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <section class="height-100 flex justify-center items-center pb-20 bg-secondary">
             <div class="container mx-auto mt-28">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Notfound = () => {
     return (
-        <div className='w-full flex justify-center items-center flex-col empty-cart'>
+        <div className='w-full flex justify-center items-center flex-col empty-cart pt-20'>
             <p className='text-9xl mb-3'>&#128512;</p>
             <h1 className='text-2xl px-3 xsm:text-4xl header-text text-gray-300'>Error 404 not found</h1>
             <h5 className='text-sm px-3 xsm:text-lg header-text text-gray-300 mt-1.5'>Looks like you've entered wrong address</h5>

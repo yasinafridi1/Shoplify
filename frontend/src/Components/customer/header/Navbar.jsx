@@ -2,6 +2,8 @@ import { React } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+    const userLogin = false;
+
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.nav');
         if (window.scrollY > 100) {
@@ -27,11 +29,18 @@ const Navbar = () => {
                         <p className='pl-2 text-lg font-semibold'>+92304-5760623</p>
                     </a>
                 </div>
-                <div className='mr-16'>
-                    {/* <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-login'> <Link to="/login">Sign In</Link> </button> */}
-                    {/* <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Sign Up</Link> </button> */}
-                    <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Log Out</Link> </button>
-                </div>
+                {
+                    userLogin ?
+                        <div className='mr-16'>
+                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Log Out</Link> </button>
+                        </div>
+                        :
+                        <div className='mr-16'>
+                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-login'> <Link to="/login">Sign In</Link> </button>
+                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Sign Up</Link> </button>
+                        </div>
+                }
+
             </div>
             <div className='w-full py-3 flex justify-between items-center'>
                 <div className='flex flex-between pl-2 sm:pl-3 items-center w-2/3 sm:w-1/2'>
@@ -47,7 +56,12 @@ const Navbar = () => {
                 <ul className=' hidden pr-1 xl:w-1/2 sm:flex sm:justify-evenly sm:w-1/2'>
                     <li><Link to="/" className='pl-8 xl:text-xl lg:text-lg md:text-base sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Home</Link></li>
                     <li><Link to="/products" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Products</Link></li>
-                    <li><Link to="/order" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Orders</Link></li>
+                    {
+                        userLogin
+                            ?
+                            <li><Link to="/order" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Orders</Link></li>
+                            : ' '
+                    }
                     <li> <a href="#about" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>About</a> </li>
                     <li> <a href="#contact" className='xl:text-xl lg:text-lg md:text-base sm:pl-5 sm:text-xs sm:font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Contact</a> </li>
                 </ul>
@@ -60,7 +74,12 @@ const Navbar = () => {
                 <ul className='sm:hidden menu-responsive d-none'>
                     <li className='py-4'><Link to="/" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Home</Link></li>
                     <li className='py-4'><Link to="/products" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Products</Link></li>
-                    <li className='py-4'><Link to="/order" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Orders</Link></li>
+                    {
+                        userLogin
+                            ?
+                            <li className='py-4'><Link to="/order" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Orders</Link></li>
+                            : ''
+                    }
                     <li className='py-4'><a href="#about" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>About Us</a></li>
                     <li className='py-4'><a href="#contact" className='text-2xl px-10 font-semibold hover:text-pink-600 transition ease-in-out duration-500'>Contact Us</a></li>
                 </ul>

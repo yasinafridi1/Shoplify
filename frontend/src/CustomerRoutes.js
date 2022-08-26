@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/customer/header/Navbar";
 import Footer from "./Components/customer/footer/Footer";
 import Home from "./Components/customer/header/Home";
@@ -9,18 +9,48 @@ import Allproducts from "./Components/product/Allproducts";
 import Notfound from './Components/Notfound';
 import Order from './Components/customer/order/Order';
 import Orderstatus from './Components/customer/order/Orderstatus';
+import Login from './Components/auth/Login';
+import Register from './Components/auth/Register';
+import RedirectRoute from './RedirectRoute';
 
 const CustomerRoutes = () => {
+    const user = false;
     return (
         <Router>
             < Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
                 <Route path="/products" element={<Allproducts />} />
                 <Route path="/product/:id" element={<Productdetail />} />
-                <Route path="/order" element={<Order />} />
-                <Route path="/orderstatus" element={<Orderstatus />} />
+                <Route path='/login' element={
+                    <RedirectRoute user={user}>
+                        <Login />
+                    </RedirectRoute>
+                } />
+
+                <Route path='/register' element={
+                    <RedirectRoute user={user}>
+                        <Register />
+                    </RedirectRoute>
+                } />
+
+
+                <Route path='/order' element={
+                    <ProtectedRoute user={user}>
+                        <Order />
+                    </ProtectedRoute>
+                } />
+                <Route path='/orderstatus' element={
+                    <ProtectedRoute user={user}>
+                        <Orderstatus />
+                    </ProtectedRoute>
+                } />
+
+                <Route path='/cart' element={
+                    <ProtectedRoute user={user}>
+                        <Cart />
+                    </ProtectedRoute>
+                } />
 
                 <Route path="*" element={<Notfound />} />
             </Routes>
@@ -28,5 +58,14 @@ const CustomerRoutes = () => {
         </Router >
     );
 }
+
+const ProtectedRoute = ({ user, children }) => {
+    if (!user) {
+        return <Navigate to="/login" replace />;
+    }
+    return children;
+};
+
+
 
 export default CustomerRoutes;
