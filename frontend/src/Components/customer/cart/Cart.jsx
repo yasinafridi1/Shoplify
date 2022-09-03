@@ -3,7 +3,7 @@ import Carttable from './Carttable';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const isCart = false;
+    const isCart = true;
     return (
         <div className='container mx-auto py-28 flex justify-center items-center flex-col'>
             {

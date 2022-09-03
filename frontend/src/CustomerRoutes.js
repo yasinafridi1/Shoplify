@@ -14,7 +14,7 @@ import Register from './Components/auth/Register';
 import RedirectRoute from './RedirectRoute';
 
 const CustomerRoutes = () => {
-    const user = false;
+    const user = true;
     return (
         <Router>
             < Navbar />
