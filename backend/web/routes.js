@@ -13,5 +13,6 @@ Router.post('/register', authcontroller().register);
 Router.get('/allProduct', allProduct().getProduct);
 Router.post('/addProduct', [auth, admin], insertProduct().addProduct);
 Router.get('/:_id', allProduct().singleProduct);
+Router.delete('/product/:_id')
 
 module.exports = Router;
