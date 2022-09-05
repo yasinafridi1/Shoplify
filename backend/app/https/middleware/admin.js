@@ -1,8 +1,9 @@
 
 const admin = async (req, res, next) => {
     try {
+        console.log(req.user);
         if (req.user.role !== 'admin') {
-            throw new Error('Only admin can add product');
+            return res.status(401).json({ message: 'Only admin can add product' });
         }
         next();
     } catch (error) {

@@ -2,6 +2,7 @@ const Joi = require("joi");
 const bcrypt = require('bcrypt');
 const User = require('../../../models/User');
 const JwtService = require("../../../../services/jwtService");
+const RefreshModel = require('../../../models/RefreshModel');
 
 function authcontroller() {
     return {
@@ -43,7 +44,7 @@ function authcontroller() {
                 httpOnly: true
             })
 
-            return res.json({ user });
+            return res.json({ user, accessToken });
         },
 
         register: async (req, res) => {
@@ -83,27 +84,26 @@ function authcontroller() {
                 if (!isSaved) {
                     return res.status(500).json({ msg: 'Internal server error.Could not register user' });
                 }
-
-                const { accessToken, refreshToken } = JwtService.generateToken({ _id: isSaved._id, role: isSaved.role });
-                const { result } = await JwtService.storeRefreshToken(refreshToken, isSaved._id);
-                if (!result) {
-                    return res.status(500).json({ msg: 'Internal server error.Could not register refresh token' });
-
-                }
-                res.cookie('refreshtoken', refreshToken, {
-                    maxAge: 1000 * 60 * 60 * 24 * 30,  // 30 days
-                    httpOnly: true
-                })
-                res.cookie('accesstoken', accessToken, {
-                    maxAge: 1000 * 60 * 60, // 1 hour
-                    httpOnly: true
-                })
-
-                return res.json({ accessToken });
-
             } catch (error) {
                 return res.status(500).json({ msg: error.message })
             }
+
+            return res.json({ message: 'All ok' });
+
+        },
+
+        logout: async (req, res) => {
+            try {
+                const token = await RefreshModel.findOneAndRemove({ userId: req.user._id });
+                if (!token) {
+                    return res.status(404).json({ message: 'Token not found' });
+                }
+                res.clearCookie('accesstoken');
+                res.clearCookie('refreshtoken');
+            } catch (err) {
+                return res.status(500).json({ message: err.message });
+            }
+            return res.json({ message: 'Logout successfully' });
         }
     }
 }
