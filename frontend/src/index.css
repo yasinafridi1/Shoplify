@@ -138,12 +138,13 @@ input#openSidebarMenu {
 
 .sidebarIconToggle {
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .spinner {
     height: 3px;
     width: 23px;
-    background: #000;
+    background: #db2777;
     transition: all .7s;
 }
 

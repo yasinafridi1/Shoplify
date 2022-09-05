@@ -12,7 +12,7 @@ const Login = () => {
     }
     return (
         <div className='w-screen flex justify-center items-center pb-16'>
-            <form className='w-3/4 sm:w-1/2 form mt-36'>
+            <form className='w-3/4 sm:w-1/2 form mt-40'>
                 <div className='py-6 text-center border-b border-gray-500 mb-8 bg-pink-600 w-full'>
                     <h1 className='header-text text-2xl'>Login Here</h1>
                 </div>

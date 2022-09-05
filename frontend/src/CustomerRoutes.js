@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/customer/header/Navbar";
 import Footer from "./Components/customer/footer/Footer";
@@ -14,7 +14,10 @@ import Register from './Components/auth/Register';
 import RedirectRoute from './RedirectRoute';
 
 const CustomerRoutes = () => {
-    const user = true;
+    const user = false;
+    useEffect(() => {
+        console.log(window.location.pathname);
+    }, []);
     return (
         <Router>
             < Navbar />

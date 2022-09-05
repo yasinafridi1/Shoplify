@@ -8,28 +8,28 @@ const About = () => {
             <div className='flex flex-between items-start mt-12 w-full flex-wrap'>
                 <div className='w-72 xsm:w-1/2 lg:w-1/2'>
                     <a href='https://goo.gl/maps/UiPfgRzcfvRwqSfc6' className='flex justify-start items-center transition-all ease-in-out duration-500 hover:text-pink-600'>
-                        <i class="fa-solid fa-location-dot text-base"></i>
+                        <i className="fa-solid fa-location-dot text-base"></i>
                         <p className='font-light pt-2 pl-2 text-sm'> xyz Peshawer Pakistan</p>
                     </a>
                     <a href='tel:+923045760623' className=' mt-3 flex justify-start items-center transition-all ease-in-out duration-500 hover:text-pink-600'>
-                        <i class="fa-solid fa-phone text-base"></i>
+                        <i className="fa-solid fa-phone text-base"></i>
                         <p className='font-light pl-2 text-sm'>+92304-5760623</p>
                     </a>
                     <a href='https://wa.me/+923045760623' className='mt-3 flex justify-start items-center transition-all ease-in-out duration-500 hover:text-pink-600'>
-                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <i className="fa-brands fa-whatsapp text-base"></i>
                         <p className='font-light pl-2 text-sm'>+92304-5760623</p>
                     </a>
                     <a href='mailto:yaseenafridi10857@gmail.com' className='mt-3 flex justify-start items-center transition-all ease-in-out duration-500 hover:text-pink-600'>
-                        <i class="fa-solid fa-envelope text-base"></i>
+                        <i className="fa-solid fa-envelope text-base"></i>
                         <p className='font-light pl-2 text-sm'>yaseenafridi10857@gmail.com</p>
                     </a>
                 </div>
                 <div className='w-72 xsm:w-1/2 sm:w-1/2 mt-5 lg:w-1/2'>
                     <h1 className='font-bold'>Social Media</h1>
                     <div className='mt-3'>
-                        <a href="https://www.facebook.com" className='pr-2'> <i class="fa-brands fa-square-facebook text-3xl transition-all ease-in-out duration-300 hover:text-blue-600"></i></a>
-                        <a href="https://www.instagram.com" className='px-2'><i class="fa-brands fa-square-instagram text-3xl transition-all ease-in-out duration-300 hover:text-pink-700"></i></a>
-                        <a href="https://www.twitter.com" className='px-2'>  <i class="fa-brands fa-square-twitter text-3xl transition-all ease-in-out duration-300 hover:text-blue-400"></i></a>
+                        <a href="https://www.facebook.com" className='pr-2'> <i className="fa-brands fa-square-facebook text-3xl transition-all ease-in-out duration-300 hover:text-blue-600"></i></a>
+                        <a href="https://www.instagram.com" className='px-2'><i className="fa-brands fa-square-instagram text-3xl transition-all ease-in-out duration-300 hover:text-pink-700"></i></a>
+                        <a href="https://www.twitter.com" className='px-2'>  <i className="fa-brands fa-square-twitter text-3xl transition-all ease-in-out duration-300 hover:text-blue-400"></i></a>
                     </div>
                 </div>
             </div>
