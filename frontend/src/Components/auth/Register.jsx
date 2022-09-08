@@ -18,7 +18,7 @@ const Register = () => {
         <div className='pb-24 w-screen flex justify-center items-center'>
             <form className='w-3/4 sm:w-1/2 form mt-40'>
                 <div className='py-6 text-center border-b border-gray-500 mb-8 bg-pink-600 w-full'>
-                    <h1 className='header-text text-2xl'>Register Here</h1>
+                    <h1 className='header-text text-2xl text-white'>Register Here</h1>
                 </div>
                 <div className='w-11/12 mx-auto pb-2'>
                     <input type="text" className="border border-gray-400 w-full rounded-lg px-3 py-1 mt-5 text-base outline-none" placeholder='Full name' />

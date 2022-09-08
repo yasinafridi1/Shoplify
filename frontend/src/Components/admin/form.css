@@ -1,0 +1,23 @@
+section {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.wrapper {
+    width: 60%;
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 15px 0px #c1c1c1;
+    align-items: center;
+    background: rgb(239, 239, 239);
+
+}
+
+.triangle {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgb(218, 133, 48) 50%, white 50%);
+}

@@ -4,6 +4,7 @@ import Notfound from './Components/Notfound';
 import Login from './Components/auth/Login';
 import Dashboard from './Components/admin/Dashboard';
 import RedirectRoute from './RedirectRoute';
+import AddProduct from './Components/admin/AddProduct';
 
 const AdminRoutes = () => {
     const user = false;
@@ -16,6 +17,7 @@ const AdminRoutes = () => {
                         <Login />
                     </RedirectRoute>
                 } />
+                <Route path='/add-product' element={<AddProduct />} />
                 <Route path="*" element={<Notfound />} />
             </Routes>
         </Router >
