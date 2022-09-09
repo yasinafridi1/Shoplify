@@ -5,7 +5,7 @@ const Dashboard = () => {
     return (
         <>
             <AdminNav />
-            <section className='w-full height-100 pt-28 pb-20 bg-secondary'>
+            <section className='w-full h-max pt-28 pb-20'>
                 <div className="w-11/12 md:container mx-auto overflow-x-scroll">
                     <h1 className='header-text text-2xl'>All Orders</h1>
                     <table className='table-auto mt-2 bg-white order-table'>
@@ -22,7 +22,7 @@ const Dashboard = () => {
                             <Tablebody />
                             <Tablebody />
                             <Tablebody />
-                            <Tablebody />
+
                             <Tablebody />
                         </tbody>
                     </table>

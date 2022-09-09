@@ -19,6 +19,7 @@ const AdminRoutes = () => {
                 } />
                 <Route path='/add-product' element={<AddProduct />} />
                 <Route path="*" element={<Notfound />} />
+
             </Routes>
         </Router >
     );
