@@ -5,7 +5,6 @@ import women from '../../../images/women.png';
 import Productlisting from '../../product/Productlisting';
 
 
-
 const Home = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
