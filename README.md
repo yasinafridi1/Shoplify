@@ -1,1 +1,2 @@
 # Shoplify
+admin password: adminafridi

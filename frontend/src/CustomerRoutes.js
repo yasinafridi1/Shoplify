@@ -15,9 +15,6 @@ import RedirectRoute from './RedirectRoute';
 
 const CustomerRoutes = () => {
     const user = false;
-    useEffect(() => {
-        console.log(window.location.pathname);
-    }, []);
     return (
         <Router>
             < Navbar />

@@ -6,11 +6,20 @@ const Router = require('./web/routes');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 global.rootDirectory = path.resolve(__dirname);
 
+const corsOption = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
+
+app.use(cors(corsOption));
+
 app.use(cookieParser());
 app.use(express.json());
+
 app.use('/uploads', express.static('uploads'));
 mongoose.connect(process.env.DB_URL, {
     useUnifiedTopology: true
@@ -21,7 +30,7 @@ mongoose.connect(process.env.DB_URL, {
 })
 
 
-app.use(Router);
+app.use('/api', Router);
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);

@@ -14,25 +14,25 @@ function authcontroller() {
 
             const { error } = loginSchema.validate(req.body);
             if (error) {
-                return res.status(401).json({ msg: error.message });
+                return res.status(422).json({ message: error.message });
             }
 
             const { email, password } = req.body;
             const user = await User.findOne({ email });
             if (!user) {
-                return res.status(401).json({ msg: 'Email not found' });
+                return res.status(422).json({ message: 'Email or password incorrect' });
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) {
-                return res.status(401).json({ msg: 'Email or password incorrect' });
+                return res.status(401).json({ message: 'Email or password incorrect' });
             }
             const { accessToken, refreshToken } = JwtService.generateToken({ _id: user._id, role: user.role });
 
 
             const { result } = await JwtService.storeRefreshToken(refreshToken, user._id);
             if (!result) {
-                return res.status(500).json({ msg: 'Internal server error.Cannot store refresh token' });
+                return res.status(500).json({ message: 'Internal server error.Cannot store refresh token' });
             }
 
             res.cookie('refreshtoken', refreshToken, {
@@ -56,19 +56,19 @@ function authcontroller() {
             })
             const { error } = registerSchema.validate(req.body);
             if (error) {
-                return res.status(401).json({ msg: error.message });
+                return res.status(422).json({ message: error.message });
             }
             const { fullName, email, password, confirmPassword } = req.body;
             const user = await User.exists({ email });
             if (user) {
-                return res.status(400).json({ msg: 'Email already registered' });
+                return res.status(409).json({ message: 'Email already registered' });
             }
 
             if (!fullName || !email || !password || !confirmPassword) {
-                return res.status(400).json({ msg: 'All fields are required' });
+                return res.status(422).json({ message: 'All fields are required' });
             }
             if (password !== confirmPassword) {
-                return res.status(400).json({ msg: 'Password not matching' });
+                return res.status(422).json({ message: 'Password not matching' });
             }
             try {
 
@@ -82,10 +82,10 @@ function authcontroller() {
 
                 const isSaved = await newUser.save();
                 if (!isSaved) {
-                    return res.status(500).json({ msg: 'Internal server error.Could not register user' });
+                    return res.status(500).json({ message: 'Internal server error.Could not register user' });
                 }
             } catch (error) {
-                return res.status(500).json({ msg: error.message })
+                return res.status(500).json({ message: error.message })
             }
 
             return res.json({ message: 'All ok' });
