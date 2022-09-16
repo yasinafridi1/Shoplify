@@ -1,9 +1,11 @@
 import { React, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../https';
+import { auth } from '../../redux/action/authAction';
 
 const Login = () => {
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,7 +25,8 @@ const Login = () => {
         try {
             const { data } = await loginUser({ email, password });
             if (data) {
-                console.log(data.user);
+                window.localStorage.setItem('user', JSON.stringify(data.userdata));
+                dispatch(auth(data.userdata));
                 navigate('/');
 
             }

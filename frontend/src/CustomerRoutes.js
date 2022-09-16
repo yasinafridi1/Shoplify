@@ -12,9 +12,16 @@ import Orderstatus from './Components/customer/order/Orderstatus';
 import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import RedirectRoute from './RedirectRoute';
+import { useSelector } from 'react-redux';
 
 const CustomerRoutes = () => {
-    const user = false;
+    const userdata = useSelector((state) => state.userInfo.user);
+    let user;
+    if (userdata.payload) {
+        user = true;
+    } else {
+        user = false;
+    }
     return (
         <Router>
             < Navbar />
@@ -60,6 +67,7 @@ const CustomerRoutes = () => {
 }
 
 const ProtectedRoute = ({ user, children }) => {
+    console.log(user);
     if (!user) {
         return <Navigate to="/login" replace />;
     }

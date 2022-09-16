@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const User = require('../../../models/User');
 const JwtService = require("../../../../services/jwtService");
 const RefreshModel = require('../../../models/RefreshModel');
+const userDto = require("../../../../services/userDto");
 
 function authcontroller() {
     return {
@@ -44,12 +45,15 @@ function authcontroller() {
                 httpOnly: true
             })
 
-            return res.json({ user, accessToken });
+            const userdata = userDto(user);
+            return res.json({ userdata, accessToken });
         },
 
         register: async (req, res) => {
+            console.log(req.body);
             const registerSchema = Joi.object({
                 fullName: Joi.string().required(),
+                phone: Joi.string().required(),
                 email: Joi.string().email().required(),
                 password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{5,15}$')).required(),
                 confirmPassword: Joi.ref('password')
@@ -85,7 +89,7 @@ function authcontroller() {
                     return res.status(500).json({ message: 'Internal server error.Could not register user' });
                 }
             } catch (error) {
-                return res.status(500).json({ message: error.message })
+                return res.status(500).json({ message: 'Internal server error.Please try again' })
             }
 
             return res.json({ message: 'All ok' });
