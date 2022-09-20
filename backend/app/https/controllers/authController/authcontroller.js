@@ -100,7 +100,7 @@ function authcontroller() {
             try {
                 const token = await RefreshModel.findOneAndRemove({ userId: req.user._id });
                 if (!token) {
-                    return res.status(404).json({ message: 'Token not found' });
+                    return res.status(422).json({ message: 'Token not found' });
                 }
                 res.clearCookie('accesstoken');
                 res.clearCookie('refreshtoken');
