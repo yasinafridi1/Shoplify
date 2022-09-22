@@ -39,7 +39,7 @@ const Navbar = () => {
                 {
                     userLogin ?
                         <div className='mr-16'>
-                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'> <Link to="/login">Log Out</Link> </button>
+                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'>Log Out</button>
                         </div>
                         :
                         <div className='mr-6 sm:mr-16'>

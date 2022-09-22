@@ -31,7 +31,12 @@ const Login = () => {
 
             }
         } catch (err) {
-            setError("** " + err.response.data.message + " **");
+            if (err.message === 'Network Error') {
+                console.log('Custome Error')
+            }
+            if (err.response.data) {
+                console.log(err.response.data);
+            }
         }
 
     }
