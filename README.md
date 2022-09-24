@@ -1,2 +1,4 @@
 # Shoplify
-admin password: adminafridi
+customer login info
+    Gmail :basit@gmail.com
+  password:customerkhan  
