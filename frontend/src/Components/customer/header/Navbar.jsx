@@ -1,15 +1,13 @@
-import { React } from 'react';
-import { useSelector } from 'react-redux';
+import { React, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { auth } from '../../../redux/action/authAction';
+import { store } from '../../../redux/store';
+import { logoutUser } from '../../../https';
 
 const Navbar = () => {
-    const userdata = useSelector((state) => state.userInfo.user);
-    let userLogin;
-    if (userdata.payload) {
-        userLogin = true;
-    } else {
-        userLogin = false;
-    }
+    const dispatch = useDispatch();
+    const [userLogin, setLogin] = useState(false);
 
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.nav');
@@ -23,6 +21,25 @@ const Navbar = () => {
         const menu = document.querySelector('.menu-responsive');
         menu.classList.toggle('d-none');
     }
+
+    useEffect(() => {
+        const user = store.getState().userInfo.user;
+        user.payload ? setLogin(true) : setLogin(false);
+    }, [userLogin]);
+
+
+    async function handleLogout() {
+        dispatch(auth());
+        localStorage.clear();
+        try {
+            const { data } = await logoutUser();
+            setLogin(false);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <nav className='nav fixed top-0 w-full flex justify-center items-center flex-col' >
             <div className='w-full flex justify-between items-center py-2 nav-header'>
@@ -39,7 +56,7 @@ const Navbar = () => {
                 {
                     userLogin ?
                         <div className='mr-16'>
-                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register'>Log Out</button>
+                            <button className='px-4 py-0.5 font-semibold border border-pink-600 btn-register' onClick={handleLogout}>Log Out</button>
                         </div>
                         :
                         <div className='mr-6 sm:mr-16'>
