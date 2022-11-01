@@ -13,7 +13,7 @@ const Footer = () => {
                 <Contact />
             </div>
             <footer className='flex justify-center items-center w-full py-2'>
-                <p className='font-semibold text-white'>© 2018-{year} Soplify - All rights reserved</p>
+                <p className='font-semibold text-white'>©{year} Soplify - Mohammad Yaseen </p>
             </footer>
         </>
     );

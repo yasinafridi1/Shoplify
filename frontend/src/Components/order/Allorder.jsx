@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react';
 import Singleorder from './Singleorder';
-const Order = () => {
+const Allorder = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -47,4 +47,4 @@ const Order = () => {
     );
 }
 
-export default Order;
+export default Allorder;

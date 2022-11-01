@@ -2,8 +2,8 @@ import React from 'react';
 import Carttable from './Carttable';
 import { Link } from 'react-router-dom';
 
-const Cart = () => {
-    const isCart = true;
+const Cartsection = () => {
+    const isCart = false;
     return (
         <div className='container mx-auto py-28 flex justify-center items-center flex-col'>
             {
@@ -27,4 +27,4 @@ const Cart = () => {
     );
 }
 
-export default Cart;
+export default Cartsection;

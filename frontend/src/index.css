@@ -222,6 +222,15 @@ input#openSidebarMenu {
     height: 500px;
 }
 
+.loading {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.473);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 footer {
     /* background: rgb(144, 150, 53); */
     background-color: rgb(21 57 78);
@@ -297,5 +306,86 @@ footer {
 
     .card:last-child {
         margin-left: 0px;
+    }
+}
+
+
+
+.loader {
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgba(209, 209, 209, 0.409);
+    animation: rotation 2s linear infinite;
+}
+
+.circle::before {
+    content: ' ';
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(to top, transparent, rgba(6, 8, 8, 0.724));
+    background-size: 70px 85px;
+    background-repeat: no-repeat;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.circle::after {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    background-color: #403f3f;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #727272,
+        0 0 20px #727272,
+        0 0 30px #727272,
+        0 0 40px #727272;
+}
+
+.circle span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+.loader h4 {
+    letter-spacing: 2px;
+    font-size: 23px;
+    color: rgb(0, 0, 0);
+    margin-top: 8px;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

@@ -20,9 +20,10 @@ function App() {
   }
   return (
     <>
-      {
+      <CustomerRoutes />
+      {/* {
         isAdmin ? <AdminRoutes /> : <CustomerRoutes />
-      }
+      } */}
     </>
   );
 }

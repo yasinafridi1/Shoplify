@@ -1,8 +1,8 @@
 import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { createUser } from '../../https';
+import { createUser } from '../https/index';
 
-const Register = () => {
+const Registerform = () => {
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const [values, setValues] = useState({
@@ -81,4 +81,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default Registerform;

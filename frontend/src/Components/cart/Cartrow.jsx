@@ -1,5 +1,5 @@
 import React from 'react';
-import women from '../../../images/wome.jpg';
+import women from '../../images/wome.jpg';
 
 const Cartrow = () => {
     return (

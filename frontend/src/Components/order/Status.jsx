@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react';
 import './order.css';
-const Orderstatus = () => {
+const Status = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -18,8 +18,7 @@ const Orderstatus = () => {
                         </li>
                         <li class="status_line text-sm md:text-xl pb-16 step-completed" data-status="confirmed"><span>Order confirmation</span>
                         </li>
-                        <li class="status_line text-sm md:text-xl pb-16 current" data-status="prepared"><span>Preparation</span></li>
-                        <li class="status_line text-sm md:text-xl pb-16" data-status="delivered"><span>Out for delivery </span>
+                        <li class="status_line text-sm md:text-xl pb-16 current" data-status="delivered"><span>Out for delivery </span>
                         </li>
                         <li class="status_line text-sm md:text-xl" data-status="completed"><span>Complete</span></li>
                     </ul>
@@ -29,4 +28,4 @@ const Orderstatus = () => {
     );
 }
 
-export default Orderstatus;
+export default Status;

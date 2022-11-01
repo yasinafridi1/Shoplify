@@ -2,10 +2,13 @@ import React from 'react';
 import Cartrow from './Cartrow';
 
 const Carttable = () => {
-    const isAuth = false;
+    const isAuth = true;
     return (
         <>
             <div className='container flex justify-center items-center flex-col py-1'>
+                <div className=' container mx-auto pt-16 pb-1 mb-10 border-b border-gray-300'>
+                    <h1 className='header-text text-2xl pl-6'>Cart Items</h1>
+                </div>
                 <Cartrow />
                 <Cartrow />
                 <Cartrow />

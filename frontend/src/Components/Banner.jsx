@@ -1,11 +1,10 @@
 import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import man from '../../../images/man-png.png';
-import women from '../../../images/women.png';
-import Productlisting from '../../product/Productlisting';
+import man from '../images/man-png.png';
+import women from '../images/women.png';
 
 
-const Home = () => {
+const Banner = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -30,10 +29,8 @@ const Home = () => {
 
                 </div>
             </section>
-            <Productlisting />
-
         </>
     );
 }
 
-export default Home;
+export default Banner;
