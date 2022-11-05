@@ -66,7 +66,7 @@ const Navbar = () => {
                 }
 
             </div>
-            <div className='w-full py-3 flex justify-between items-center'>
+            <div className='w-full py-3 flex justify-between items-center bg-blue'>
                 <div className='flex flex-between pl-2 sm:pl-3 items-center w-2/3 sm:w-1/2'>
                     <div className='flex w-1/2 xsm:pl-4'>
                         <i className="fa-solid fa-bag-shopping px-2 text-2xl pl-6 text-pink-800" ></i>

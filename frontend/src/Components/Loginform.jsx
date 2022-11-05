@@ -6,7 +6,7 @@ import { loginUser } from '../https/index';
 import { auth } from '../redux/action/authAction';
 
 const Loginform = () => {
-    const [loaded, isloading] = useState(false);
+    const [isloading, setloading] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -24,14 +24,14 @@ const Loginform = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        isloading(true);
+        setloading(true);
         try {
             const { data } = await loginUser({ email, password });
             if (data) {
                 window.localStorage.setItem('user', JSON.stringify(data.userdata));
                 dispatch(auth(data.userdata));
                 navigate('/');
-                isloading(false);
+                setloading(false);
             }
         } catch (err) {
             if (err.message === 'Network Error') {
@@ -41,7 +41,7 @@ const Loginform = () => {
             if (err.response.data) {
                 console.log(err.response.data);
             }
-            isloading(false);
+            setloading(false);
 
         }
 
@@ -51,7 +51,7 @@ const Loginform = () => {
     return (
         <div className='w-screen flex justify-center items-center pb-16'>
             {
-                loaded ? <Loading />
+                isloading ? <Loading />
                     :
                     <form className='w-3/4 sm:w-1/2 form mt-40 relative' onSubmit={handleSubmit}>
                         <div className='py-6 text-center border-b border-gray-500 mb-8 bg-pink-600 w-full'>

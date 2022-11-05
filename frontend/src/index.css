@@ -43,8 +43,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.nav {
+.bg-blue {
     background-color: rgb(21 57 78);
+}
+
+.nav {
     transition: all .3s ease-in-out;
     color: rgb(222, 222, 222);
     top: 0;

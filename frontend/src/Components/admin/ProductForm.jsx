@@ -1,8 +1,7 @@
 import { useState, React, useEffect } from 'react';
-import AdminNav from './AdminNav';
-import './form.css';
+import { addProduct } from '../../https';
 
-const AddProduct = () => {
+const ProductForm = () => {
     const product = {
         name: 'Man shirts',
         price: 350,
@@ -19,10 +18,13 @@ const AddProduct = () => {
     });
 
     const [file, setFile] = useState('');
-
-    function handleFile(e) {
-        setFile(e.target.files[0]);
-    }
+    const handleFileChange = (e) => {
+        const img = {
+            preview: URL.createObjectURL(e.target.files[0]),
+            data: e.target.files[0],
+        };
+        setFile(img);
+    };
 
     function setData(e) {
         const { name, value } = e.target;
@@ -44,31 +46,29 @@ const AddProduct = () => {
                 description,
                 price
             })
-            setFile(image);
         }
     }, []);
 
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('file', file);
-        formData.append('productName', values.productName);
-        formData.append('price', values.price);
+        formData.append('name', values.productName);
         formData.append('category', values.category);
-        formData.append('type', values.type);
         formData.append('description', values.description);
+        formData.append('price', values.price);
+        formData.append('type', values.type);
     }
 
     return (
         <>
-            <AdminNav />
-            <section className='pb-12'>
-                <div className="wrapper mt-32">
+            <section className='formSection'>
+                <div className="wrapper">
                     <div className="triangle">
                         <h1 className='px-6 mt-32 header-text text-2xl text-white'>Welcome!</h1>
                         <div className='px-6 header-text text-base text-white'>
                             <p>Create new product</p>
+                            <p>or update a product</p>
                         </div>
                     </div>
                     <form className='bg-white h-full text-center' onSubmit={handleSubmit} encType="multipart/form-data">
@@ -78,7 +78,7 @@ const AddProduct = () => {
 
                             <input value={values.productName} onChange={setData} name='productName' type="text" className="border border-gray-400 w-full rounded-lg px-3 py-1 mt-2 mb-2 text-base outline-none" required placeholder='Product name' />
                             <input value={values.price} onChange={setData} name='price' type="number" className="border border-gray-400 w-full rounded-lg px-3 py-1 mt-2 text-base outline-none" required placeholder='Product price' />
-                            <input type="file" onChange={handleFile} className="border border-gray-400 bg-white  w-full rounded-lg px-3 py-1 mt-4 text-sm outline-none" required placeholder='Product Image' />
+                            <input type="file" onChange={handleFileChange} className="border border-gray-400 bg-white  w-full rounded-lg px-3 py-1 mt-4 text-sm outline-none" required placeholder='Product Image' />
 
                             <select value={values.type} name='type' onChange={setData} className="block px-3 py-1 mt-3 mb-2 w-full text-lg text-gray-900  rounded-lg border border-gray-400 outline-none">
                                 <option value="shirt">Shirt</option>
@@ -94,7 +94,7 @@ const AddProduct = () => {
 
                         </div>
                         <div className="btn-div mt-3 mb-3">
-                            <button type='submit' className='mb-2 border border-pink-600 px-8 py-0.5 text-lg text-pink-600 bg-white font-semibold transition-all ease-in-out duration-700 hover:text-white hover:bg-pink-600'>Submit</button>
+                            <button type='submit' className='mb-2 border border-pink-600 px-8 py-0.5 text-lg text-pink-600 bg-white font-semibold transition-all ease-in-out duration-700 hover:text-white hover:bg-pink-600' onClick={handleSubmit}>Submit</button>
                         </div>
                     </form>
                 </div>
@@ -103,4 +103,4 @@ const AddProduct = () => {
     );
 }
 
-export default AddProduct;
+export default ProductForm;

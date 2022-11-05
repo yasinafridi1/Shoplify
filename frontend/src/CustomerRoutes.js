@@ -10,6 +10,9 @@ import RedirectRoute from './RedirectRoute';
 import Cart from './pages/Cart/Cart';
 import Customerorder from './pages/Order/Customerorder';
 import Orderstatus from './pages/Order/Orderstatus';
+import Error from './pages/Customer/Error';
+
+
 
 const CustomerRoutes = () => {
     const userdata = useSelector((state) => state.userInfo.user);
@@ -59,7 +62,7 @@ const CustomerRoutes = () => {
                 } />
 
 
-                {/* <Route path="*" element={<Notfound />} /> */}
+                <Route path="*" element={<Error />} />
 
             </Routes>
         </Router >

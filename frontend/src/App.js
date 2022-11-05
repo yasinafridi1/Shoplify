@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminRoutes from "./AdminRoutes";
 import CustomerRoutes from "./CustomerRoutes";
@@ -12,18 +12,19 @@ function App() {
     dispatch(auth(JSON.parse(data)));
   }, []);
   const user = useSelector((state) => state.userInfo.user);
-  let isAdmin;
+
+  let admin;
+
   if (user.payload) {
-    isAdmin = user.payload.role === "admin" ? true : false;
+    admin = user.payload.role === "admin" ? true : false;
   } else {
-    isAdmin = false;
+    admin = false;
   }
   return (
     <>
-      <CustomerRoutes />
-      {/* {
-        isAdmin ? <AdminRoutes /> : <CustomerRoutes />
-      } */}
+      {
+        admin ? <AdminRoutes /> : <CustomerRoutes />
+      }
     </>
   );
 }
