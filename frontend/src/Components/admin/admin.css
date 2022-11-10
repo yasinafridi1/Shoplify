@@ -10,12 +10,12 @@
 .burger {
     color: white;
     font-size: 20px;
-    transition: all .5s ease-in;
+    transition: all .3s ease-in;
     cursor: pointer;
 }
 
 .burger:hover {
-    color: rgb(5, 191, 204);
+    color: rgb(241, 31, 139);
 }
 
 .nav-menu {
@@ -24,7 +24,7 @@
     width: 20%;
     height: 100%;
     left: -100%;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .active {
@@ -48,7 +48,7 @@
 }
 
 .close:hover {
-    color: rgb(5, 191, 204);
+    color: rgb(248, 57, 139);
 }
 
 .nav-link {
@@ -88,4 +88,49 @@
     width: 55%;
     height: 100%;
     background: linear-gradient(to bottom right, rgb(223, 25, 127) 50%, white 50%);
+}
+
+.bigBtn {
+    box-shadow: 0px 0px 7px 0px rgb(222, 222, 222);
+}
+
+.basic-height {
+    min-height: 77.5vh;
+}
+
+.productCard {
+    box-shadow: 0px 0px 5px 0px rgb(227, 227, 227);
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    padding: 6px;
+    /* border-radius: 50%; */
+    font-size: 30px;
+    top: 0%;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+.icon1 {
+    left: 0;
+    color: rgb(236, 236, 236);
+    background: rgb(241, 44, 90);
+}
+
+.icon1:hover {
+    color: rgb(241, 44, 90);
+    background: rgb(236, 236, 236);
+}
+
+.icon2 {
+    right: 0%;
+    color: rgb(54, 54, 54);
+    background: rgb(115, 237, 63);
+}
+
+.icon2:hover {
+    color: rgb(6, 121, 29);
+    background: rgb(236, 236, 236);
 }

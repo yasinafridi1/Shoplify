@@ -1,13 +1,14 @@
 import React from 'react';
 import AdminNav from '../../Components/admin/AdminNav';
+import Order from '../../Components/admin/Adminorder/Order';
+import Footer from '../../Components/admin/Footer';
 
 const Orders = () => {
     return (
         <>
             <AdminNav />
-            <section className='w-full h-full flex justify-center items-center'>
-                <h3>Orders</h3>
-            </section>
+            <Order />
+            <Footer />
         </>
     );
 }

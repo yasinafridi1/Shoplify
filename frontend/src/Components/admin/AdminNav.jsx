@@ -31,10 +31,10 @@ const AdminNav = () => {
                     <FaBars className='burger' onClick={() => { setSideBar(true) }} />
                 </div>
                 <div className='barDiv'>
-                    <button onClick={handleLogout} className='text-xl font-semibold text-white transition duration-300 ease-out hover:text-cyan-300'>Logout</button>
+                    <button onClick={handleLogout} className='text-xl font-semibold text-white transition duration-300 ease-out hover:text-pink-500'>Logout</button>
                 </div>
             </div>
-            <nav className={sidebar ? 'nav-menu active bg-blue' : 'nav-menu bg-blue'}>
+            <nav className={sidebar ? 'nav-menu active bg-blue z-50' : 'nav-menu bg-blue z-50'}>
                 <div className="cross-div">
                     <AiOutlineClose className='close' onClick={() => { setSideBar(false) }} />
                 </div>

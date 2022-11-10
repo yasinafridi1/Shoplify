@@ -6,6 +6,7 @@ import Product from './pages/Admin/Product';
 import RedirectRoute from './RedirectRoute';
 import Login from './pages/Auth/Login';
 import Error from './pages/Admin/Error';
+import AdminNav from './Components/admin/AdminNav';
 
 const AdminRoutes = () => {
     const user = false;

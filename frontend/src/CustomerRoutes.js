@@ -11,6 +11,7 @@ import Cart from './pages/Cart/Cart';
 import Customerorder from './pages/Order/Customerorder';
 import Orderstatus from './pages/Order/Orderstatus';
 import Error from './pages/Customer/Error';
+import Navbar from './Components/Navbar';
 
 
 

@@ -1,5 +1,5 @@
 import { useState, React, useEffect } from 'react';
-import { addProduct } from '../../https';
+import { addProduct } from '../../../https';
 
 const ProductForm = () => {
     const product = {
