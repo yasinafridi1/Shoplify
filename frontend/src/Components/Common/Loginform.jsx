@@ -2,8 +2,8 @@ import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from './Loading';
-import { loginUser } from '../https/index';
-import { auth } from '../redux/action/authAction';
+import { loginUser } from '../../https/index';
+import { auth } from '../../redux/action/authAction';
 
 const Loginform = () => {
     const [isloading, setloading] = useState(false);
@@ -30,8 +30,8 @@ const Loginform = () => {
             if (data) {
                 window.localStorage.setItem('user', JSON.stringify(data.userdata));
                 dispatch(auth(data.userdata));
-                navigate('/');
                 setloading(false);
+                navigate('/');
             }
         } catch (err) {
             if (err.message === 'Network Error') {

@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../../images/man.jpg';
+import image from '../../../images/man.jpg';
 
 const Singleproduct = () => {
 

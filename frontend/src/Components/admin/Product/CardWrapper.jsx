@@ -1,10 +1,12 @@
 import { React, useState } from 'react';
 import ProductCard from './ProductCard';
 import { Link } from 'react-router-dom';
-import ProductForm from './ProductForm';
+import Loading from '../../Common/Loading';
+
 
 const CardWrapper = () => {
     const [status, setStatus] = useState('all');
+    const [loading, setLoading] = useState(false);
 
     return (
         <>
@@ -28,16 +30,21 @@ const CardWrapper = () => {
                     <p className='font-semibold text-sm'>Product</p>
                 </div>
             </div>
-            <section className='basic-height p-10 w-full grid grid-cols-1 xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-y-12 place-items-center transition-all ease-out duration-700'>
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-            </section>
+            {
+                loading ?
+                    <Loading />
+                    :
+                    <section className='basic-height p-10 w-full grid grid-cols-1 xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-y-12 place-items-center transition-all ease-out duration-700'>
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                    </section>
+            }
         </>
     );
 }

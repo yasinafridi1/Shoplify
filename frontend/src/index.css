@@ -315,12 +315,12 @@ footer {
 
 
 .loader {
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.884);
     width: 100vw;
-    height: 100%;
-    position: fixed;
+    height: 60vh;
+    /* position: fixed;
     top: 0;
-    left: 0;
+    left: 0; */
     display: flex;
     justify-content: center;
     align-items: center;

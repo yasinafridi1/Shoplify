@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { auth } from '../redux/action/authAction';
-import { store } from '../redux/store';
-import { logoutUser } from '../https';
+import { auth } from '../../redux/action/authAction';
+import { store } from '../../redux/store';
+import { logoutUser } from '../../https';
 
 const Navbar = () => {
     const dispatch = useDispatch();

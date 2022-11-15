@@ -16,11 +16,9 @@ const ProductCard = () => {
     }
 
     return (
-        <div to='/product/737278372' className='w-48 xsm:w-36 lg:w-48 productCard relative z-0'>
-
+        <div className='w-48 xsm:w-36 lg:w-48 productCard relative z-0'>
             <Link to='/jkaska'><MdDelete className='icon icon1' /></Link>
             <Link to='/edit-product/029390293'><FiEdit3 className='icon icon2' /></Link>
-
             <div className='flex flex-col justify-center items-center w-full'>
                 <div className='h-32 md:h-32 lg:h-36 w-full flex justify-center items-center'>
                     <img src={image} alt="Product" className='w-full h-full' />
@@ -30,7 +28,7 @@ const ProductCard = () => {
                     <p className='text-sm'>Women</p>
                     <div className='flex justify-between items-center w-full px-3 mt-1'>
                         <p className='font-medium'>$78</p>
-                        <button className="px-4 text-base  font-semibold border border-pink-600  transition-all ease-in-out duration-500 text-pink-600 hover:text-white hover:bg-pink-600">Detail</button>
+                        <Link to='/product-detail/9283823' className="px-4 text-base  font-semibold border border-pink-600  transition-all ease-in-out duration-500 text-pink-600 hover:text-white hover:bg-pink-600">Detail</Link>
                     </div>
                 </div>
             </div>

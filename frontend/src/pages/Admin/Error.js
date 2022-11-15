@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminNav from '../../Components/admin/AdminNav';
-import Notfound from '../../Components/Notfound';
+import Notfound from '../../Components/Common/Notfound';
 
 const Error = () => {
     return (

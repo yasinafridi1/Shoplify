@@ -1,7 +1,7 @@
 import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import man from '../images/man-png.png';
-import women from '../images/women.png';
+import man from '../../images/man-png.png';
+import women from '../../images/women.png';
 
 
 const Banner = () => {

@@ -3,15 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Register from './pages/Auth/Register';
 import Login from "./pages/Auth/Login";
 import Home from './pages/Customer/Home';
-import Allproducts from './pages/Product/Allproducts';
-import Productdetail from './pages/Product/Productdetail';
+import Allproducts from './pages/Customer/Product/Allproducts';
+import Productdetail from './pages/Customer/Product/Productdetail';
 import { useSelector } from 'react-redux';
 import RedirectRoute from './RedirectRoute';
-import Cart from './pages/Cart/Cart';
-import Customerorder from './pages/Order/Customerorder';
-import Orderstatus from './pages/Order/Orderstatus';
+import Cart from './pages/Customer/Cart/Cart';
+import Customerorder from './pages/Customer/Order/Customerorder';
+import Orderstatus from './pages/Customer/Order/Orderstatus';
 import Error from './pages/Customer/Error';
-import Navbar from './Components/Navbar';
 
 
 
