@@ -1,7 +1,39 @@
 import { useState, React, useEffect } from 'react';
 import { addProduct } from '../../../https';
+import storage from "../../../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const ProductForm = () => {
+
+    const [image, setImage] = useState('');
+    const [url, setUrl] = useState(null);
+
+    function handleChange(e) {
+        setImage(e.target.files[0]);
+    }
+
+
+    const handleUpload = () => {
+        if (!image) {
+            alert("Please upload an image first!");
+        }
+        const storageRef = ref(storage, `/images/${image.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, image);
+
+        uploadTask.on(
+            "state_changed",
+            snapshot => { },
+            err => console.log(err),
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    console.log(url);
+                });
+            }
+        );
+    };
+
+
+
     const product = {
         name: 'Man shirts',
         price: 350,
@@ -17,14 +49,6 @@ const ProductForm = () => {
         description: '',
     });
 
-    const [file, setFile] = useState('');
-    const handleFileChange = (e) => {
-        const img = {
-            preview: URL.createObjectURL(e.target.files[0]),
-            data: e.target.files[0],
-        };
-        setFile(img);
-    };
 
     function setData(e) {
         const { name, value } = e.target;
@@ -50,15 +74,11 @@ const ProductForm = () => {
     }, []);
 
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('name', values.productName);
-        formData.append('category', values.category);
-        formData.append('description', values.description);
-        formData.append('price', values.price);
-        formData.append('type', values.type);
+        handleUpload();
     }
+
 
     return (
         <>
@@ -71,14 +91,14 @@ const ProductForm = () => {
                             <p>or update a product</p>
                         </div>
                     </div>
-                    <form className='bg-white h-full text-center' onSubmit={handleSubmit} encType="multipart/form-data">
+                    <form className='bg-white h-full text-center' encType="multipart/form-data">
                         <h1 className='text-3xl header-text mt-4'>Add Product</h1>
                         <p className='mb-3 text-red-500'>{/* ** Fields are required ** */}</p>
                         <div className="inputs pr-10">
 
                             <input value={values.productName} onChange={setData} name='productName' type="text" className="border border-gray-400 w-full rounded-lg px-3 py-1 mt-2 mb-2 text-base outline-none" required placeholder='Product name' />
                             <input value={values.price} onChange={setData} name='price' type="number" className="border border-gray-400 w-full rounded-lg px-3 py-1 mt-2 text-base outline-none" required placeholder='Product price' />
-                            <input type="file" onChange={handleFileChange} className="border border-gray-400 bg-white  w-full rounded-lg px-3 py-1 mt-4 text-sm outline-none" required placeholder='Product Image' />
+                            <input type="file" onChange={(e) => { handleChange(e) }} className="border border-gray-400 bg-white  w-full rounded-lg px-3 py-1 mt-4 text-sm outline-none" required placeholder='Product Image' />
 
                             <select value={values.type} name='type' onChange={setData} className="block px-3 py-1 mt-3 mb-2 w-full text-lg text-gray-900  rounded-lg border border-gray-400 outline-none">
                                 <option value="shirt">Shirt</option>

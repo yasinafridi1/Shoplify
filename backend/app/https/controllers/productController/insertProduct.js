@@ -18,6 +18,7 @@ const handlemultipart = multer({ storage, limits: { fileSize: 1000000 * 15 } }).
 function insertProduct() {
     return {
         addProduct: (req, res) => {
+            console.log(req.body);
             handlemultipart(req, res, async (err) => {
                 if (err) {
                     return res.status(500).json({ msg: err.message });
