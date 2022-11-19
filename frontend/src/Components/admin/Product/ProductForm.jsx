@@ -2,11 +2,24 @@ import { useState, React, useEffect } from 'react';
 import { addProduct } from '../../../https';
 import storage from "../../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import Loading from '../../Common/Loading';
+import { useNavigate } from 'react-router-dom';
 
 const ProductForm = () => {
 
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     const [image, setImage] = useState('');
-    const [url, setUrl] = useState(null);
+    const [error, setError] = useState('');
+    const [values, setValues] = useState({
+        productName: '',
+        price: '',
+        type: '',
+        category: '',
+        description: '',
+        image: ''
+    });
+
 
     function handleChange(e) {
         setImage(e.target.files[0]);
@@ -15,9 +28,10 @@ const ProductForm = () => {
 
     const handleUpload = () => {
         if (!image) {
-            alert("Please upload an image first!");
+            setError('Please select an image');
         }
-        const storageRef = ref(storage, `/images/${image.name}`);
+        setLoading(true);
+        const storageRef = ref(storage, `/images/${Date.now()}-${image.name}`);
         const uploadTask = uploadBytesResumable(storageRef, image);
 
         uploadTask.on(
@@ -26,7 +40,19 @@ const ProductForm = () => {
             err => console.log(err),
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    console.log(url);
+                    values.image = url;
+                    addProduct(values).then(data => {
+                        setLoading(false);
+                        navigate('/');
+                    }).catch((err) => {
+                        setLoading(false);
+                        if (err.message === 'Network Error') {
+                            setError('Slow internet connection');
+
+                        } else {
+                            setError('Something went wrong');
+                        }
+                    })
                 });
             }
         );
@@ -39,15 +65,10 @@ const ProductForm = () => {
         price: 350,
         category: 'female',
         type: 'jean',
-        description: 'this is best jeans'
+        description: 'this is best jeans',
+        image: "https://firebasestorage.googleapis.com/v0/b/images-f7401.appspot.com/o/images%2F1668870568621-ganttchart.jpg?alt=media&token=d83697d3-286f-40d9-9b86-1d7cb34d5acf"
     }
-    const [values, setValues] = useState({
-        productName: '',
-        price: '',
-        type: '',
-        category: '',
-        description: '',
-    });
+
 
 
     function setData(e) {
@@ -63,12 +84,14 @@ const ProductForm = () => {
     useEffect(() => {
         if (product) {
             const { name, type, category, price, description, image } = product;
+            setImage(image);
             setValues({
                 productName: name,
                 type,
                 category,
                 description,
-                price
+                price: price.toString(),
+                image
             })
         }
     }, []);
@@ -79,11 +102,14 @@ const ProductForm = () => {
         handleUpload();
     }
 
+    if (loading) {
+        return <Loading />
+    }
 
     return (
         <>
             <section className='formSection'>
-                <div className="wrapper">
+                <div className="wrapper mb-10">
                     <div className="triangle">
                         <h1 className='px-6 mt-32 header-text text-2xl text-white'>Welcome!</h1>
                         <div className='px-6 header-text text-base text-white'>
@@ -93,7 +119,7 @@ const ProductForm = () => {
                     </div>
                     <form className='bg-white h-full text-center' encType="multipart/form-data">
                         <h1 className='text-3xl header-text mt-4'>Add Product</h1>
-                        <p className='mb-3 text-red-500'>{/* ** Fields are required ** */}</p>
+                        <p className='mb-3 text-red-500 font-semibold'>{error}</p>
                         <div className="inputs pr-10">
 
                             <input value={values.productName} onChange={setData} name='productName' type="text" className="border border-gray-400 w-full rounded-lg px-3 py-1 mt-2 mb-2 text-base outline-none" required placeholder='Product name' />

@@ -6,8 +6,8 @@ import Product from './pages/Admin/Product';
 import RedirectRoute from './RedirectRoute';
 import Login from './pages/Auth/Login';
 import Error from './pages/Admin/Error';
-import ProductForm from './Components/admin/Product/ProductForm';
 import SingleProduct from './pages/Admin/SingleProduct';
+import Addproduct from './pages/Admin/Addproduct';
 
 const AdminRoutes = () => {
     const user = false;
@@ -17,8 +17,8 @@ const AdminRoutes = () => {
                 <Route path="/" element={<Home />} />
                 <Route path='/orders' element={<Orders />} />
                 <Route path='/products' element={<Product />} />
-                <Route path='/edit-product/:id' element={<ProductForm />} />
-                <Route path='/add-product' element={<ProductForm />} />
+                <Route path='/edit-product/:id' element={<Addproduct />} />
+                <Route path='/add-product' element={<Addproduct />} />
                 <Route path='/product-detail/:id' element={<SingleProduct />} />
                 <Route path='/login' element={
                     <RedirectRoute user={user}>
